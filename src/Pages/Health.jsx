@@ -1,43 +1,99 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 function Health() {
+
+
+   const fadeUp = {
+    hidden: { opacity: 0, y: 70 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.7,
+      },
+    },
+  };
+
+  const cardAnimation = {
+    hidden: { opacity: 0, scale: 0.9 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+
+
+
   return (
     <>
-      <div className=" w-[80%] h-[500px] mt-36 m-auto rounded-3xl relative flex justify-center">
-        <img
+      <motion.div
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className=" w-[80%] h-[500px] mt-36 m-auto rounded-3xl relative flex justify-center"
+      >
+        <motion.img
           src="https://www.reliancefoundation.org/sites/default/files/2023-12/health-banner.jpg"
           alt="rural"
           className="w-full h-full rounded-3xl"
         />
 
         <div className="w-[83%] h-36 absolute bottom-10  z-10 flex items-center ">
-          <div className="w-32 h-32 rounded-full bg-green-400 ">
+          <motion.div
+          animate={{ y: [0, -10, 0] }}
+            transition={{ repeat: Infinity, duration: 3 }} 
+          className="w-32 h-32 rounded-full bg-green-400 ">
             <img
               src="https://www.reliancefoundation.org/sites/default/files/2023-12/heart_icon.png"
               alt="logo"
               className="w-full h-full "
             />
-          </div>
-          <div className="text-7xl ml-5 text-white font-serif font-bold">
+          </motion.div>
+          <motion.div
+          initial={{ opacity: 0, x: 80 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+          className="text-7xl ml-5 text-white font-serif font-bold">
             Health
-          </div>
+          </motion.div>
         </div>
 
         <div className="absolute bottom-0 left-0 w-full h-[200px] bg-gradient-to-t from-black/80 to-transparent"></div>
-      </div>
+      </motion.div>
 
-      <div className="w-[80%] m-auto  h-20 bg-[#C0EDD0] flex pl-16 ">
-        <div className="w-52 bg-white text-[#1a365d] font-medium flex items-center justify-center text-2xl">
+      <motion.div 
+       variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      className="w-[80%] m-auto  h-20 bg-[#C0EDD0] flex pl-16 ">
+        <motion.div 
+        whileHover={{ scale: 1.05 }}
+        className="w-52 bg-white text-[#1a365d] font-medium flex items-center justify-center text-2xl">
           Overview
-        </div>
-        <div className="w-[40%]  text-[#1a365d] font-medium flex items-center ml-10 text-2xl">
+        </motion.div>
+        <motion.div 
+        whileHover={{ scale: 1.05 }}
+        className="w-[40%]  text-[#1a365d] font-medium flex items-center ml-10 text-2xl">
           Our Health Initiatives
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
-      <div className="w-[80%] h-[2830px] bg-white m-auto flex gap-10 p-10 rounded-2xl rounded-t-none">
+      <motion.div 
+      variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      className="w-[80%] h-[2830px] bg-white m-auto flex gap-10 p-10 rounded-2xl rounded-t-none">
         <div className="w-[35%] h-full relative">
-          <div className="w-full h-60 rounded-2xl  overflow-hidden">
+          <motion.div
+           whileHover={{ scale: 1.03 }}
+          className="w-full h-60 rounded-2xl  overflow-hidden">
             <iframe
               className="w-full h-full"
               src="https://www.youtube.com/embed/bNpzm2K-WFA"
@@ -46,9 +102,12 @@ function Health() {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             ></iframe>
-          </div>
+          </motion.div>
 
-          <div className="w-full h-[500px] bg-[#C0EDD0] mt-11 rounded-3xl p-5">
+          <motion.div 
+          variants={fadeUp}
+            whileHover={{ y: -8 }}
+          className="w-full h-[500px] bg-[#C0EDD0] mt-11 rounded-3xl p-5">
             <div className="text-4xl font-serif text-[#003C3C]">
               Impact at a Glance
             </div>
@@ -82,7 +141,7 @@ function Health() {
             <p className="text-right mt-4 text-lg text-[#003C3C]">
               (*As of March 31, 2025)
             </p>
-          </div>
+          </motion.div>
 
           <div className="text-3xl font-serif text-[#003C3C] mt-14">
             What’s New
@@ -285,14 +344,27 @@ function Health() {
             </p>
           </div>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="mt-14 ml-40 text-6xl font-serif text-[#003C3C]">
+      <motion.div 
+      variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+      className="mt-14 ml-40 text-6xl font-serif text-[#003C3C]">
         Latest on Rural Transformation
-      </div>
+      </motion.div>
 
       <div className="w-[80%] h-[400px] m-auto mt-10 flex gap-7">
-        <div className="w-[32%] h-full bg-white rounded-3xl hover:-translate-y-2">
+        <motion.div 
+        variants={cardAnimation}
+            initial="hidden"
+            whileInView="visible"
+            whileHover={{
+              y: -15,
+              scale: 1.02,
+            }}
+            transition={{ duration: 0.3 }}
+        className="w-[32%] h-full bg-white rounded-3xl hover:-translate-y-2">
           <div className="w-full h-[60%] ">
             <img
               src="https://www.reliancefoundation.org/sites/default/files/2024-12/GSDMA-INCOIS_thumb.jpg"
@@ -305,12 +377,22 @@ function Health() {
               MEDIA RELEASE
             </div>
             <div className="mt-2 text-2xl font-serif text-[#003C3C]">
-              Enhancing tsunami preparedness in Gujarat: GSDMA, INCOIS, Kachchh...
+              Enhancing tsunami preparedness in Gujarat: GSDMA, INCOIS,
+              Kachchh...
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="w-[32%] h-full bg-white rounded-3xl hover:-translate-y-2">
+        <motion.div 
+        variants={cardAnimation}
+            initial="hidden"
+            whileInView="visible"
+            whileHover={{
+              y: -15,
+              scale: 1.02,
+            }}
+            transition={{ duration: 0.3 }}
+        className="w-[32%] h-full bg-white rounded-3xl hover:-translate-y-2">
           <div className="w-full h-[60%] ">
             <img
               src="https://www.reliancefoundation.org/sites/default/files/2024-03/Taking-healthcare.jpg"
@@ -326,9 +408,18 @@ function Health() {
               Taking healthcare access to women who need it the most
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="w-[32%] h-full bg-white rounded-3xl hover:-translate-y-2">
+        <motion.div
+        variants={cardAnimation}
+            initial="hidden"
+            whileInView="visible"
+            whileHover={{
+              y: -15,
+              scale: 1.02,
+            }}
+            transition={{ duration: 0.3 }}
+         className="w-[32%] h-full bg-white rounded-3xl hover:-translate-y-2">
           <div className="w-full h-[60%] ">
             <img
               src="https://www.reliancefoundation.org/sites/default/files/2024-03/health-services.jpg"
@@ -342,10 +433,9 @@ function Health() {
             </div>
             <div className="mt-2 text-2xl font-serif text-[#003C3C]">
               Delivering timely health services to the last mile
-
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
 
       <div className="mt-14 ml-40 text-6xl font-serif text-[#003C3C]">
@@ -353,9 +443,19 @@ function Health() {
       </div>
 
       <div className="w-[80%] h-[550px] m-auto mt-10 flex justify-between">
-        <div className="w-[49%] h-full bg-white rounded-3xl p-9 relative cursor-pointer">
+        <motion.div
+        variants={cardAnimation}
+            initial="hidden"
+            whileInView="visible"
+            whileHover={{
+              y: -10,
+              scale: 1.02,
+            }}
+         className="w-[49%] h-full bg-white rounded-3xl p-9 relative cursor-pointer">
           <div className="w-full h-[50%] bg-gray-500 rounded-3xl ">
-            <img
+            <motion.img
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.5 }}
               src="https://www.reliancefoundation.org/sites/default/files/2024-01/health_thumb7.jpg"
               alt="liveimg"
               className="w-full h-full rounded-3xl"
@@ -363,27 +463,38 @@ function Health() {
           </div>
 
           <div className="w-full h-[30%] mt-24">
-            <div className="text-3xl font-serif">
-              COVID-19 Response
-            </div>
+            <div className="text-3xl font-serif">COVID-19 Response</div>
 
             <button className="w-36 font-medium mt-16 h-12 bg-orange-200 rounded-full ">
               LEARN MORE
             </button>
           </div>
 
-          <div className="w-24 h-24 flex items-center justify-center bg-[#C0EDD0] absolute top-56 left-56 rounded-full">
+          <motion.div
+          animate={{ rotate: [0, 5, -5, 0] }}
+              transition={{ repeat: Infinity, duration: 4 }}
+          className="w-24 h-24 flex items-center justify-center bg-[#C0EDD0] absolute top-56 left-56 rounded-full">
             <img
               src="https://www.reliancefoundation.org/sites/default/files/2024-01/health_icon7.png"
               alt="live"
               className="w-[80%] h-[80%] object-contain"
             />
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        <div className="w-[49%] h-full bg-white rounded-3xl p-9 relative cursor-pointer">
+        <motion.div
+        variants={cardAnimation}
+            initial="hidden"
+            whileInView="visible"
+            whileHover={{
+              y: -10,
+              scale: 1.02,
+            }}
+         className="w-[49%] h-full bg-white rounded-3xl p-9 relative cursor-pointer">
           <div className="w-full h-[50%] bg-gray-500 rounded-3xl ">
-            <img
+            <motion.img
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.5 }}
               src="https://www.reliancefoundation.org/sites/default/files/2024-01/health_thumb6.jpg"
               alt="liveimg"
               className="w-full h-full rounded-3xl"
@@ -391,27 +502,42 @@ function Health() {
           </div>
 
           <div className="w-full h-[30%] mt-24">
-            <div className="text-3xl font-serif">ASMAN Project: Alliance for Saving Mothers and Newborns</div>
+            <div className="text-3xl font-serif">
+              ASMAN Project: Alliance for Saving Mothers and Newborns
+            </div>
 
             <button className="w-36 font-medium mt-5 h-12 bg-orange-200 rounded-full">
               LEARN MORE
             </button>
           </div>
 
-          <div className="w-24 h-24 flex items-center justify-center bg-[#C0EDD0] absolute top-56 left-56 rounded-full">
+          <motion.div
+          animate={{ rotate: [0, 5, -5, 0] }}
+          transition={{ repeat: Infinity, duration: 4 }}
+          className="w-24 h-24 flex items-center justify-center bg-[#C0EDD0] absolute top-56 left-56 rounded-full">
             <img
               src="https://www.reliancefoundation.org/sites/default/files/2024-01/health_icon6.png"
               alt="live"
               className="w-[70%] h-[70%] object-contain"
             />
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
 
       <div className="w-[80%] h-[550px] m-auto mt-10 flex justify-between">
-        <div className="w-[49%] h-full bg-white rounded-3xl p-9 relative cursor-pointer">
+        <motion.div 
+        variants={cardAnimation}
+            initial="hidden"
+            whileInView="visible"
+            whileHover={{
+              y: -10,
+              scale: 1.02,
+            }}
+        className="w-[49%] h-full bg-white rounded-3xl p-9 relative cursor-pointer">
           <div className="w-full h-[50%] bg-gray-500 rounded-3xl ">
-            <img
+            <motion.img
+               whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.5 }}
               src="https://www.reliancefoundation.org/sites/default/files/2024-01/health_thumb5.jpg"
               alt="liveimg"
               className="w-full h-full rounded-3xl"
@@ -428,18 +554,31 @@ function Health() {
             </button>
           </div>
 
-          <div className="w-24 h-24 flex items-center justify-center bg-[#C0EDD0] absolute top-56 left-56 rounded-full">
+          <motion.div 
+          animate={{ rotate: [0, 5, -5, 0] }}
+          transition={{ repeat: Infinity, duration: 4 }}
+          className="w-24 h-24 flex items-center justify-center bg-[#C0EDD0] absolute top-56 left-56 rounded-full">
             <img
               src="https://www.reliancefoundation.org/sites/default/files/2024-01/health_icon5.png"
               alt="live"
               className="w-[80%] h-[80%] object-contain"
             />
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        <div className="w-[49%] h-full bg-white rounded-3xl p-9 relative cursor-pointer">
+        <motion.div 
+        variants={cardAnimation}
+            initial="hidden"
+            whileInView="visible"
+            whileHover={{
+              y: -10,
+              scale: 1.02,
+            }}
+        className="w-[49%] h-full bg-white rounded-3xl p-9 relative cursor-pointer">
           <div className="w-full h-[50%] bg-gray-500 rounded-3xl ">
-            <img
+            <motion.img
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.5 }}
               src="https://www.reliancefoundation.org/sites/default/files/2024-01/health_thumb4.jpg"
               alt="liveimg"
               className="w-full h-full rounded-3xl"
@@ -447,29 +586,40 @@ function Health() {
           </div>
 
           <div className="w-full h-[30%] mt-24">
-            <div className="text-3xl font-serif">
-              Community Medical Centers
-            </div>
+            <div className="text-3xl font-serif">Community Medical Centers</div>
 
             <button className="w-36 font-medium mt-16 h-12 bg-orange-200 rounded-full">
               LEARN MORE
             </button>
           </div>
 
-          <div className="w-24 h-24 flex items-center justify-center bg-[#C0EDD0] absolute top-56 left-56 rounded-full">
+          <motion.div
+          animate={{ rotate: [0, 5, -5, 0] }}
+          transition={{ repeat: Infinity, duration: 4 }}
+          className="w-24 h-24 flex items-center justify-center bg-[#C0EDD0] absolute top-56 left-56 rounded-full">
             <img
               src="https://www.reliancefoundation.org/sites/default/files/2024-01/health_icon4.png"
               alt="live"
               className="w-[70%] h-[70%] object-contain"
             />
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
 
-      <div className="w-[80%] h-[550px] m-auto mt-10 flex justify-between">
-        <div className="w-[49%] h-full bg-white rounded-3xl p-9 relative cursor-pointer">
+      <div  className="w-[80%] h-[550px] m-auto mt-10 flex justify-between">
+        <motion.div 
+        variants={cardAnimation}
+            initial="hidden"
+            whileInView="visible"
+            whileHover={{
+              y: -10,
+              scale: 1.02,
+            }}
+        className="w-[49%] h-full bg-white rounded-3xl p-9 relative cursor-pointer">
           <div className="w-full h-[50%] bg-gray-500 rounded-3xl ">
-            <img
+            <motion.img
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.5 }}
               src="https://www.reliancefoundation.org/sites/default/files/2024-01/health_thumb3.jpg"
               alt="liveimg"
               className="w-full h-full rounded-3xl"
@@ -478,7 +628,7 @@ function Health() {
 
           <div className="w-full h-[30%] mt-24">
             <div className="text-3xl font-serif">
-             Health Outreach Initiatives
+              Health Outreach Initiatives
             </div>
 
             <button className="w-36 font-medium mt-16 h-12 bg-orange-200 rounded-full">
@@ -486,18 +636,31 @@ function Health() {
             </button>
           </div>
 
-          <div className="w-24 h-24 flex items-center justify-center bg-[#C0EDD0] absolute top-56 left-56 rounded-full">
+          <motion.div 
+          animate={{ rotate: [0, 5, -5, 0] }}
+           transition={{ repeat: Infinity, duration: 4 }}
+          className="w-24 h-24 flex items-center justify-center bg-[#C0EDD0] absolute top-56 left-56 rounded-full">
             <img
               src="https://www.reliancefoundation.org/sites/default/files/2024-01/health_icon3.png"
               alt="live"
               className="w-[80%] h-[80%] object-contain"
             />
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        <div className="w-[49%] h-full bg-white rounded-3xl p-9 relative cursor-pointer">
+        <motion.div
+        variants={cardAnimation}
+            initial="hidden"
+            whileInView="visible"
+            whileHover={{
+              y: -10,
+              scale: 1.02,
+            }}
+         className="w-[49%] h-full bg-white rounded-3xl p-9 relative cursor-pointer">
           <div className="w-full h-[50%] bg-gray-500 rounded-3xl ">
-            <img
+            <motion.img
+             whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.5 }}
               src="https://www.reliancefoundation.org/sites/default/files/2024-01/health_thumb1.jpg"
               alt="liveimg"
               className="w-full h-full rounded-3xl"
@@ -515,16 +678,23 @@ function Health() {
           </div>
 
           <div className="w-24 h-24 flex items-center justify-center bg-[#C0EDD0] absolute top-56 left-56 rounded-full">
-            <img
+            <motion.img
+            animate={{ rotate: [0, 5, -5, 0] }}
+              transition={{ repeat: Infinity, duration: 4 }}
               src="https://www.reliancefoundation.org/sites/default/files/2024-01/health_icon1.png"
               alt="live"
               className="w-[70%] h-[70%] object-contain"
             />
           </div>
-        </div>
+        </motion.div>
       </div>
 
-      <div className="w-[80%] m-auto h-[450px]  bg-[#C0EDD0] mt-12 rounded-3xl text-center">
+      <motion.div  
+      variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        whileHover={{ scale: 1.01 }}
+      className="w-[80%] m-auto h-[450px]  bg-[#C0EDD0] mt-12 rounded-3xl text-center">
         <div className=" pt-14 text-6xl font-serif text-[#003C3C]">
           Sign up for our latest updates
         </div>
@@ -546,9 +716,365 @@ function Health() {
             SUBSCRIBE
           </button>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 }
 
 export default Health;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React from "react";
+// import { motion } from "framer-motion";
+
+// function Health() {
+//   const fadeUp = {
+//     hidden: { opacity: 0, y: 70 },
+//     visible: {
+//       opacity: 1,
+//       y: 0,
+//       transition: {
+//         duration: 0.7,
+//       },
+//     },
+//   };
+
+//   const cardAnimation = {
+//     hidden: { opacity: 0, scale: 0.9 },
+//     visible: {
+//       opacity: 1,
+//       scale: 1,
+//       transition: {
+//         duration: 0.5,
+//       },
+//     },
+//   };
+
+//   return (
+//     <>
+//       {/* HERO SECTION */}
+//       <motion.div
+//         variants={fadeUp}
+//         initial="hidden"
+//         whileInView="visible"
+//         viewport={{ once: true }}
+//         className="w-[80%] h-[500px] mt-36 m-auto rounded-3xl relative flex justify-center overflow-hidden"
+//       >
+//         <motion.img
+//           whileHover={{ scale: 1.05 }}
+//           transition={{ duration: 0.5 }}
+//           src="https://www.reliancefoundation.org/sites/default/files/2023-12/health-banner.jpg"
+//           alt="rural"
+//           className="w-full h-full rounded-3xl"
+//         />
+
+//         <div className="w-[83%] h-36 absolute bottom-10 z-10 flex items-center">
+//           <motion.div
+//             animate={{ y: [0, -10, 0] }}
+//             transition={{ repeat: Infinity, duration: 3 }}
+//             className="w-32 h-32 rounded-full bg-green-400"
+//           >
+//             <img
+//               src="https://www.reliancefoundation.org/sites/default/files/2023-12/heart_icon.png"
+//               alt="logo"
+//               className="w-full h-full"
+//             />
+//           </motion.div>
+
+//           <motion.div
+//             initial={{ opacity: 0, x: 80 }}
+//             animate={{ opacity: 1, x: 0 }}
+//             transition={{ duration: 1 }}
+//             className="text-7xl ml-5 text-white font-serif font-bold"
+//           >
+//             Health
+//           </motion.div>
+//         </div>
+
+//         <div className="absolute bottom-0 left-0 w-full h-[200px] bg-gradient-to-t from-black/80 to-transparent"></div>
+//       </motion.div>
+
+//       {/* TAB SECTION */}
+//       <motion.div
+//         variants={fadeUp}
+//         initial="hidden"
+//         whileInView="visible"
+//         viewport={{ once: true }}
+//         className="w-[80%] m-auto h-20 bg-[#C0EDD0] flex pl-16"
+//       >
+//         <motion.div
+//           whileHover={{ scale: 1.05 }}
+//           className="w-52 bg-white text-[#1a365d] font-medium flex items-center justify-center text-2xl cursor-pointer"
+//         >
+//           Overview
+//         </motion.div>
+
+//         <motion.div
+//           whileHover={{ scale: 1.05 }}
+//           className="w-[40%] text-[#1a365d] font-medium flex items-center ml-10 text-2xl cursor-pointer"
+//         >
+//           Our Health Initiatives
+//         </motion.div>
+//       </motion.div>
+
+//       {/* MAIN CONTENT */}
+//       <motion.div
+//         variants={fadeUp}
+//         initial="hidden"
+//         whileInView="visible"
+//         viewport={{ once: true }}
+//         className="w-[80%] h-[2830px] bg-white m-auto flex gap-10 p-10 rounded-2xl rounded-t-none"
+//       >
+//         {/* LEFT SIDE */}
+//         <div className="w-[35%] h-full relative">
+//           {/* VIDEO */}
+//           <motion.div
+//             whileHover={{ scale: 1.03 }}
+//             className="w-full h-60 rounded-2xl overflow-hidden"
+//           >
+//             <iframe
+//               className="w-full h-full"
+//               src="https://www.youtube.com/embed/bNpzm2K-WFA"
+//               title="YouTube video player"
+//               frameBorder="0"
+//               allowFullScreen
+//             ></iframe>
+//           </motion.div>
+
+//           {/* IMPACT CARD */}
+//           <motion.div
+//             variants={fadeUp}
+//             whileHover={{ y: -8 }}
+//             className="w-full h-[500px] bg-[#C0EDD0] mt-11 rounded-3xl p-5 shadow-lg"
+//           >
+//             <div className="text-4xl font-serif text-[#003C3C]">
+//               Impact at a Glance
+//             </div>
+
+//             {[1, 2, 3].map((item, index) => (
+//               <motion.div
+//                 key={index}
+//                 initial={{ opacity: 0, x: -40 }}
+//                 whileInView={{ opacity: 1, x: 0 }}
+//                 transition={{ delay: index * 0.2 }}
+//                 className="mt-7 flex gap-2"
+//               >
+//                 <motion.img
+//                   whileHover={{ rotate: 10, scale: 1.1 }}
+//                   src="logo.png"
+//                   alt="icon"
+//                   className="w-10 h-10"
+//                 />
+
+//                 <p className="font-sans text-left text-xl text-[#003C3C] font-medium">
+//                   Sample impact content here...
+//                 </p>
+//               </motion.div>
+//             ))}
+//           </motion.div>
+
+//           {/* WHATS NEW */}
+//           <motion.div
+//             variants={fadeUp}
+//             className="text-3xl font-serif text-[#003C3C] mt-14"
+//           >
+//             What’s New
+//           </motion.div>
+
+//           <motion.div
+//             whileHover={{ scale: 1.03 }}
+//             transition={{ duration: 0.3 }}
+//             className="w-full h-72 bg-orange-200 rounded-2xl mt-5 flex sticky top-28 cursor-pointer shadow-lg"
+//           >
+//             <div className="w-[60%] h-full">
+//               <img
+//                 src="https://www.reliancefoundation.org/sites/default/files/2024-12/promo_unit.jpg"
+//                 alt="img"
+//                 className="w-full h-full rounded-2xl rounded-r-none"
+//               />
+//             </div>
+
+//             <div className="w-[40%] h-full text-2xl flex justify-center items-center pl-4">
+//               Bharat Vishavguru Foundation Millets Conferences
+//             </div>
+//           </motion.div>
+//         </div>
+
+//         {/* RIGHT SIDE */}
+//         <div className="w-[61%] h-full">
+//           <motion.div
+//             initial={{ opacity: 0, y: 40 }}
+//             whileInView={{ opacity: 1, y: 0 }}
+//             transition={{ duration: 0.7 }}
+//             className="text-5xl font-semibold text-[#003C3C]"
+//           >
+//             Empowering rural <br /> communities with sustainable solutions
+//           </motion.div>
+
+//           <motion.p
+//             variants={fadeUp}
+//             initial="hidden"
+//             whileInView="visible"
+//             className="text-xl font-sans text-justify mt-10 text-[#003C3C] font-medium"
+//           >
+//             Reliance Foundation's Rural Transformation programme aims to uplift
+//             rural communities by enhancing livelihoods, fostering sustainable
+//             agriculture, empowering women, and building resilient community
+//             structures.
+//           </motion.p>
+//         </div>
+//       </motion.div>
+
+//       {/* LATEST CARDS */}
+//       <motion.div
+//         variants={fadeUp}
+//         initial="hidden"
+//         whileInView="visible"
+//         className="mt-14 ml-40 text-6xl font-serif text-[#003C3C]"
+//       >
+//         Latest on Rural Transformation
+//       </motion.div>
+
+//       <div className="w-[80%] h-[400px] m-auto mt-10 flex gap-7">
+//         {[1, 2, 3].map((item, index) => (
+//           <motion.div
+//             key={index}
+//             variants={cardAnimation}
+//             initial="hidden"
+//             whileInView="visible"
+//             whileHover={{
+//               y: -15,
+//               scale: 1.02,
+//             }}
+//             transition={{ duration: 0.3 }}
+//             className="w-[32%] h-full bg-white rounded-3xl overflow-hidden cursor-pointer shadow-lg"
+//           >
+//             <div className="w-full h-[60%] overflow-hidden">
+//               <motion.img
+//                 whileHover={{ scale: 1.1 }}
+//                 transition={{ duration: 0.4 }}
+//                 src="https://www.reliancefoundation.org/sites/default/files/2024-03/Taking-healthcare.jpg"
+//                 alt="media img"
+//                 className="w-full h-full"
+//               />
+//             </div>
+
+//             <div className="p-5">
+//               <div className="text-lg font-semibold text-[#03C978]">
+//                 Stories About Our Work
+//               </div>
+
+//               <div className="mt-2 text-2xl font-serif text-[#003C3C]">
+//                 Delivering timely health services to the last mile
+//               </div>
+//             </div>
+//           </motion.div>
+//         ))}
+//       </div>
+
+//       {/* HEALTH INITIATIVE CARDS */}
+//       <div className="w-[80%] m-auto mt-14 grid grid-cols-2 gap-8">
+//         {[1, 2, 3, 4].map((item, index) => (
+//           <motion.div
+//             key={index}
+//             variants={cardAnimation}
+//             initial="hidden"
+//             whileInView="visible"
+//             whileHover={{
+//               y: -10,
+//               scale: 1.02,
+//             }}
+//             className="h-[550px] bg-white rounded-3xl p-9 relative cursor-pointer shadow-xl"
+//           >
+//             <div className="w-full h-[50%] rounded-3xl overflow-hidden">
+//               <motion.img
+//                 whileHover={{ scale: 1.1 }}
+//                 transition={{ duration: 0.5 }}
+//                 src="https://www.reliancefoundation.org/sites/default/files/2024-01/health_thumb7.jpg"
+//                 alt="liveimg"
+//                 className="w-full h-full rounded-3xl"
+//               />
+//             </div>
+
+//             <motion.div
+//               animate={{ rotate: [0, 5, -5, 0] }}
+//               transition={{ repeat: Infinity, duration: 4 }}
+//               className="w-24 h-24 flex items-center justify-center bg-[#C0EDD0] absolute top-56 left-56 rounded-full"
+//             >
+//               <img
+//                 src="https://www.reliancefoundation.org/sites/default/files/2024-01/health_icon7.png"
+//                 alt="live"
+//                 className="w-[80%] h-[80%] object-contain"
+//               />
+//             </motion.div>
+
+//             <div className="w-full h-[30%] mt-24">
+//               <div className="text-3xl font-serif">
+//                 COVID-19 Response
+//               </div>
+
+//               <motion.button
+//                 whileTap={{ scale: 0.9 }}
+//                 whileHover={{
+//                   scale: 1.08,
+//                 }}
+//                 className="w-36 font-medium mt-16 h-12 bg-orange-200 rounded-full"
+//               >
+//                 LEARN MORE
+//               </motion.button>
+//             </div>
+//           </motion.div>
+//         ))}
+//       </div>
+
+//       {/* SUBSCRIBE SECTION */}
+//       <motion.div
+//         variants={fadeUp}
+//         initial="hidden"
+//         whileInView="visible"
+//         whileHover={{ scale: 1.01 }}
+//         className="w-[80%] m-auto h-[450px] bg-[#C0EDD0] mt-12 rounded-3xl text-center"
+//       >
+//         <div className="pt-14 text-6xl font-serif text-[#003C3C]">
+//           Sign up for our latest updates
+//         </div>
+
+//         <p className="mt-10 text-2xl text-[#003C3C]">
+//           Get our email updates on the projects accelerating development.
+//         </p>
+
+//         <motion.input
+//           whileFocus={{ scale: 1.03 }}
+//           type="text"
+//           className="pt-10 w-[500px] mt-10 border-b-2 bg-[#C0EDD0] text-xl font-serif border-[#003C3C] pb-3 text-gray-500 outline-none"
+//           placeholder="Enter your email address*"
+//         />
+
+//         <div>
+//           <motion.button
+//             whileHover={{ scale: 1.08 }}
+//             whileTap={{ scale: 0.9 }}
+//             className="bg-[#003C3C] p-4 text-white font-bold rounded-full pl-11 mt-5 pr-11"
+//           >
+//             SUBSCRIBE
+//           </motion.button>
+//         </div>
+//       </motion.div>
+//     </>
+//   );
+// }
+
+// export default Health;
