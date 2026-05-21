@@ -1,9 +1,40 @@
 import React from "react";
+import { motion } from "framer-motion";
+
 
 function Environment() {
+
+   const fadeUp = {
+    hidden: { opacity: 0, y: 70 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.7,
+      },
+    },
+  };
+
+  const cardAnimation = {
+    hidden: { opacity: 0, scale: 0.9 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+
+
   return (
     <>
-      <div className=" w-[80%] h-[500px] mt-36 m-auto rounded-3xl relative flex justify-center">
+      <motion.div 
+       variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      className=" w-[80%] h-[500px] mt-36 m-auto rounded-3xl relative flex justify-center">
         <img
           src="https://www.reliancefoundation.org/sites/default/files/2025-09/Environment%20and%20Animal%20Welfare%20D.png"
           alt="rural"
@@ -11,34 +42,55 @@ function Environment() {
         />
 
         <div className="w-[83%] h-36 absolute bottom-10  z-10 flex items-center ">
-          <div className="w-36 h-36 rounded-full ">
+          <motion.div
+           animate={{ y: [0, -10, 0] }}
+            transition={{ repeat: Infinity, duration: 3 }} 
+          className="w-36 h-36 rounded-full ">
             <img
               src="https://www.reliancefoundation.org/sites/default/files/2025-08/vantara_icon_page.png"
               alt="logo"
               className="w-full h-full "
             />
-          </div>
-          <div className="text-7xl ml-5 text-white font-serif font-bold">
+          </motion.div>
+          <motion.div 
+          initial={{ opacity: 0, x: 80 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+          className="text-7xl ml-5 text-white font-serif font-bold">
             Environment & Animal Welfare
-          </div>
+          </motion.div>
         </div>
 
         <div className="absolute bottom-0 left-0 w-full h-[200px] bg-gradient-to-t from-black/80 to-transparent"></div>
-      </div>
+      </motion.div>
 
-      <div className="w-[80%] m-auto  h-20 bg-[#C0EDD0] flex pl-16 ">
-        <div className="w-52 bg-white text-[#1a365d] font-medium flex items-center justify-center text-2xl">
+      <motion.div 
+       variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      className="w-[80%] m-auto  h-20 bg-[#C0EDD0] flex pl-16 ">
+        <motion.div 
+         whileHover={{ scale: 1.05 }}
+        className="w-52 bg-white text-[#1a365d] font-medium flex items-center justify-center text-2xl">
           Overview
-        </div>
+        </motion.div>
         {/* <div className="w-[40%]  text-[#1a365d] font-medium flex items-center ml-10 text-2xl">
         Sports for Development Initiatives
         </div> */}
-      </div>
+      </motion.div>
 
 
-      <div className="w-[80%] h-[2830px] bg-white m-auto flex gap-10 p-10 rounded-2xl rounded-t-none">
+      <motion.div 
+       variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      className="w-[80%] h-[2830px] bg-white m-auto flex gap-10 p-10 rounded-2xl rounded-t-none">
         <div className="w-[35%] h-full relative">
-          <div className="w-full h-60 rounded-2xl  overflow-hidden">
+          <motion.div
+          whileHover={{ scale: 1.03 }}
+          className="w-full h-60 rounded-2xl  overflow-hidden">
             <iframe
               className="w-full h-full"
               src="https://www.youtube.com/embed/bNpzm2K-WFA"
@@ -47,9 +99,12 @@ function Environment() {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             ></iframe>
-          </div>
+          </motion.div>
 
-          <div className="w-full h-[500px] bg-[#C0EDD0] mt-11 rounded-3xl p-5">
+          <motion.div 
+           variants={fadeUp}
+            whileHover={{ y: -8 }}
+          className="w-full h-[500px] bg-[#C0EDD0] mt-11 rounded-3xl p-5">
             <div className="text-4xl font-serif text-[#003C3C]">
               Impact at a Glance
             </div>
@@ -83,7 +138,7 @@ function Environment() {
             <p className="text-right mt-4 text-lg text-[#003C3C]">
               (*As of March 31, 2025)
             </p>
-          </div>
+          </motion.div>
 
           <div className="text-3xl font-serif text-[#003C3C] mt-14">
             What’s New
@@ -286,14 +341,27 @@ function Environment() {
             </p>
           </div>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="mt-14 ml-40 text-6xl font-serif text-[#003C3C]">
+      <motion.div
+       variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+      className="mt-14 ml-40 text-6xl font-serif text-[#003C3C]">
         Latest on Environment & Animal Welfare
-      </div>
+      </motion.div>
 
       <div className="w-[80%] h-[400px] m-auto mt-10 flex gap-7">
-        <div className="w-[32%] h-full bg-white rounded-3xl hover:-translate-y-2">
+        <motion.div 
+         variants={cardAnimation}
+            initial="hidden"
+            whileInView="visible"
+            whileHover={{
+              y: -15,
+              scale: 1.02,
+            }}
+            transition={{ duration: 0.3 }}
+        className="w-[32%] h-full bg-white rounded-3xl hover:-translate-y-2">
           <div className="w-full h-[60%] ">
             <img
               src="https://www.reliancefoundation.org/sites/default/files/2025-09/chintu_650X390.jpg"
@@ -309,9 +377,18 @@ function Environment() {
              Chintu: The Little Otter Who Learned to Swim
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="w-[32%] h-full bg-white rounded-3xl hover:-translate-y-2">
+        <motion.div 
+         variants={cardAnimation}
+            initial="hidden"
+            whileInView="visible"
+            whileHover={{
+              y: -15,
+              scale: 1.02,
+            }}
+            transition={{ duration: 0.3 }}
+        className="w-[32%] h-full bg-white rounded-3xl hover:-translate-y-2">
           <div className="w-full h-[60%] ">
             <img
               src="https://www.reliancefoundation.org/sites/default/files/2025-09/mohini_650X390.jpg"
@@ -327,9 +404,18 @@ function Environment() {
             Mohini, the Loneliest Elephant, Rescued and Finds a New Family in...
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="w-[32%] h-full bg-white rounded-3xl hover:-translate-y-2">
+        <motion.div
+         variants={cardAnimation}
+            initial="hidden"
+            whileInView="visible"
+            whileHover={{
+              y: -15,
+              scale: 1.02,
+            }}
+            transition={{ duration: 0.3 }}
+        className="w-[32%] h-full bg-white rounded-3xl hover:-translate-y-2">
           <div className="w-full h-[60%] ">
             <img
               src="https://www.reliancefoundation.org/sites/default/files/2025-09/vaibhav_650X390.jpg"
@@ -346,7 +432,7 @@ function Environment() {
 
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* <div className="mt-14 ml-40 text-6xl font-serif text-[#003C3C]">
@@ -525,7 +611,12 @@ function Environment() {
         </div> */}
       {/* </div> */}
 
-      <div className="w-[80%] m-auto h-[450px]  bg-[#C0EDD0] mt-12 rounded-3xl text-center">
+      <motion.div 
+      variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        whileHover={{ scale: 1.01 }}
+      className="w-[80%] m-auto h-[450px]  bg-[#C0EDD0] mt-12 rounded-3xl text-center">
         <div className=" pt-14 text-6xl font-serif text-[#003C3C]">
           Sign up for our latest updates
         </div>
@@ -547,7 +638,7 @@ function Environment() {
             SUBSCRIBE
           </button>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 }

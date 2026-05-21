@@ -1,9 +1,40 @@
 import React from "react";
+import { motion } from "framer-motion";
+
 
 function Rural() {
+
+   const fadeUp = {
+    hidden: { opacity: 0, y: 70 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.7,
+      },
+    },
+  };
+
+  const cardAnimation = {
+    hidden: { opacity: 0, scale: 0.9 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+
+
   return (
     <>
-      <div className=" w-[80%] h-[500px] mt-36 m-auto rounded-3xl relative flex justify-center">
+      <motion.div
+       variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      className=" w-[80%] h-[500px] mt-36 m-auto rounded-3xl relative flex justify-center">
         <img
           src="rural_img_1.jpg"
           alt="rural"
@@ -11,33 +42,56 @@ function Rural() {
         />
 
         <div className="w-[83%] h-36 absolute bottom-10  z-10 flex items-center ">
-          <div className="w-32 h-32 rounded-full bg-green-400 ">
+          <motion.div 
+           animate={{ y: [0, -10, 0] }}
+            transition={{ repeat: Infinity, duration: 3 }} 
+          className="w-32 h-32 rounded-full bg-green-400 ">
             <img
               src="https://www.reliancefoundation.org/sites/default/files/2024-01/rural-icon.png"
               alt="logo"
               className="w-full h-full "
             />
-          </div>
-          <div className="text-7xl ml-5 text-white font-serif font-bold">
+          </motion.div>
+          <motion.div 
+          initial={{ opacity: 0, x: 80 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+          className="text-7xl ml-5 text-white font-serif font-bold">
             Rural Transformation
-          </div>
+          </motion.div>
         </div>
 
         <div className="absolute bottom-0 left-0 w-full h-[200px] bg-gradient-to-t from-black/80 to-transparent"></div>
-      </div>
+      </motion.div>
 
-      <div className="w-[80%] m-auto  h-20 bg-[#C0EDD0] flex pl-16 ">
-        <div className="w-52 bg-white text-[#1a365d] font-medium flex items-center justify-center text-2xl">
+      <motion.div 
+       variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      className="w-[80%] m-auto  h-20 bg-[#C0EDD0] flex pl-16 ">
+        <motion.div 
+         whileHover={{ scale: 1.05 }}
+        className="w-52 bg-white text-[#1a365d] font-medium flex items-center justify-center text-2xl">
           Overview
-        </div>
-        <div className="w-[40%]  text-[#1a365d] font-medium flex items-center justify-center text-2xl">
+        </motion.div>
+        <motion.div
+         whileHover={{ scale: 1.05 }}
+        className="w-[40%]  text-[#1a365d] font-medium flex items-center justify-center text-2xl">
           Our Rural Transformation Initiatives
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
-      <div className="w-[80%] h-[2830px] bg-white m-auto flex gap-10 p-10 rounded-2xl rounded-t-none">
+      <motion.div 
+       variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      className="w-[80%] h-[2830px] bg-white m-auto flex gap-10 p-10 rounded-2xl rounded-t-none">
         <div className="w-[35%] h-full relative">
-          <div className="w-full h-60 rounded-2xl  overflow-hidden">
+          <motion.div
+          whileHover={{ scale: 1.03 }}
+          className="w-full h-60 rounded-2xl  overflow-hidden">
             <iframe
               className="w-full h-full"
               src="https://www.youtube.com/embed/p7qD_YVdxXw"
@@ -46,9 +100,12 @@ function Rural() {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             ></iframe>
-          </div>
+          </motion.div>
 
-          <div className="w-full h-[500px] bg-[#C0EDD0] mt-11 rounded-3xl p-5">
+          <motion.div
+           variants={fadeUp}
+            whileHover={{ y: -8 }}
+          className="w-full h-[500px] bg-[#C0EDD0] mt-11 rounded-3xl p-5">
             <div className="text-4xl font-serif text-[#003C3C]">
               Impact at a Glance
             </div>
@@ -82,7 +139,7 @@ function Rural() {
             <p className="text-right mt-4 text-lg text-[#003C3C]">
               (*As of March 31, 2025)
             </p>
-          </div>
+          </motion.div>
 
           <div className="text-3xl font-serif text-[#003C3C] mt-14">
             What’s New
@@ -285,14 +342,27 @@ function Rural() {
             </p>
           </div>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="mt-14 ml-40 text-6xl font-serif text-[#003C3C]">
+      <motion.div 
+       variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+      className="mt-14 ml-40 text-6xl font-serif text-[#003C3C]">
         Latest on Rural Transformation
-      </div>
+      </motion.div>
 
       <div className="w-[80%] h-[400px] m-auto mt-10 flex gap-7">
-        <div className="w-[32%] h-full bg-white rounded-3xl hover:-translate-y-2">
+        <motion.div
+         variants={cardAnimation}
+            initial="hidden"
+            whileInView="visible"
+            whileHover={{
+              y: -15,
+              scale: 1.02,
+            }}
+            transition={{ duration: 0.3 }}
+        className="w-[32%] h-full bg-white rounded-3xl hover:-translate-y-2">
           <div className="w-full h-[60%] ">
             <img
               src="https://www.reliancefoundation.org/sites/default/files/2026-05/Untitled%20%281%29.png"
@@ -309,9 +379,18 @@ function Rural() {
               study...
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="w-[32%] h-full bg-white rounded-3xl hover:-translate-y-2">
+        <motion.div
+         variants={cardAnimation}
+            initial="hidden"
+            whileInView="visible"
+            whileHover={{
+              y: -15,
+              scale: 1.02,
+            }}
+            transition={{ duration: 0.3 }}
+        className="w-[32%] h-full bg-white rounded-3xl hover:-translate-y-2">
           <div className="w-full h-[60%] ">
             <img
               src="https://www.reliancefoundation.org/sites/default/files/2026-05/3_0.png"
@@ -328,9 +407,18 @@ function Rural() {
               I...
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="w-[32%] h-full bg-white rounded-3xl hover:-translate-y-2">
+        <motion.div 
+         variants={cardAnimation}
+            initial="hidden"
+            whileInView="visible"
+            whileHover={{
+              y: -15,
+              scale: 1.02,
+            }}
+            transition={{ duration: 0.3 }}
+        className="w-[32%] h-full bg-white rounded-3xl hover:-translate-y-2">
           <div className="w-full h-[60%] ">
             <img
               src="https://www.reliancefoundation.org/sites/default/files/2026-05/4.png"
@@ -346,7 +434,7 @@ function Rural() {
               Insights & Innovations: Towards an Aatmanirbhar Gaon
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
 
       <div className="mt-14 ml-40 text-6xl font-serif text-[#003C3C]">
@@ -354,9 +442,19 @@ function Rural() {
       </div>
 
       <div className="w-[80%] h-[550px] m-auto mt-10 flex justify-between">
-        <div className="w-[49%] h-full bg-white rounded-3xl p-9 relative cursor-pointer">
+        <motion.div 
+        variants={cardAnimation}
+            initial="hidden"
+            whileInView="visible"
+            whileHover={{
+              y: -10,
+              scale: 1.02,
+            }}
+        className="w-[49%] h-full bg-white rounded-3xl p-9 relative cursor-pointer">
           <div className="w-full h-[50%] bg-gray-500 rounded-3xl ">
-            <img
+            <motion.img
+            whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.5 }}
               src="https://www.reliancefoundation.org/sites/default/files/2024-01/rural_thumb1.jpg"
               alt="liveimg"
               className="w-full h-full rounded-3xl"
@@ -373,18 +471,31 @@ function Rural() {
             </button>
           </div>
 
-          <div className="w-24 h-24 flex items-center justify-center bg-[#C0EDD0] absolute top-56 left-56 rounded-full">
+          <motion.div 
+          animate={{ rotate: [0, 5, -5, 0] }}
+          transition={{ repeat: Infinity, duration: 4 }}
+          className="w-24 h-24 flex items-center justify-center bg-[#C0EDD0] absolute top-56 left-56 rounded-full">
             <img
               src="https://www.reliancefoundation.org/sites/default/files/2024-01/rural_icon1.png"
               alt="live"
               className="w-[80%] h-[80%] object-contain"
             />
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        <div className="w-[49%] h-full bg-white rounded-3xl p-9 relative cursor-pointer">
+        <motion.div 
+        variants={cardAnimation}
+            initial="hidden"
+            whileInView="visible"
+            whileHover={{
+              y: -10,
+              scale: 1.02,
+            }}
+        className="w-[49%] h-full bg-white rounded-3xl p-9 relative cursor-pointer">
           <div className="w-full h-[50%] bg-gray-500 rounded-3xl ">
-            <img
+            <motion.img
+            whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.5 }}
               src="https://www.reliancefoundation.org/sites/default/files/2024-01/rural_thumb2.jpg"
               alt="liveimg"
               className="w-full h-full rounded-3xl"
@@ -399,20 +510,33 @@ function Rural() {
             </button>
           </div>
 
-          <div className="w-24 h-24 flex items-center justify-center bg-[#C0EDD0] absolute top-56 left-56 rounded-full">
+          <motion.div
+          animate={{ rotate: [0, 5, -5, 0] }}
+          transition={{ repeat: Infinity, duration: 4 }}
+          className="w-24 h-24 flex items-center justify-center bg-[#C0EDD0] absolute top-56 left-56 rounded-full">
             <img
               src="https://www.reliancefoundation.org/sites/default/files/2024-01/rural_icon2.png"
               alt="live"
               className="w-[70%] h-[70%] object-contain"
             />
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
 
       <div className="w-[80%] h-[550px] m-auto mt-10 flex justify-between">
-        <div className="w-[49%] h-full bg-white rounded-3xl p-9 relative cursor-pointer">
+        <motion.div
+        variants={cardAnimation}
+            initial="hidden"
+            whileInView="visible"
+            whileHover={{
+              y: -10,
+              scale: 1.02,
+            }}
+        className="w-[49%] h-full bg-white rounded-3xl p-9 relative cursor-pointer">
           <div className="w-full h-[50%] bg-gray-500 rounded-3xl ">
-            <img
+            <motion.img
+            whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.5 }}
               src="https://www.reliancefoundation.org/sites/default/files/2024-01/rural_thumb3.jpg"
               alt="liveimg"
               className="w-full h-full rounded-3xl"
@@ -429,18 +553,31 @@ function Rural() {
             </button>
           </div>
 
-          <div className="w-24 h-24 flex items-center justify-center bg-[#C0EDD0] absolute top-56 left-56 rounded-full">
+          <motion.div 
+          animate={{ rotate: [0, 5, -5, 0] }}
+          transition={{ repeat: Infinity, duration: 4 }}
+          className="w-24 h-24 flex items-center justify-center bg-[#C0EDD0] absolute top-56 left-56 rounded-full">
             <img
               src="https://www.reliancefoundation.org/sites/default/files/2024-01/rural_icon3.png"
               alt="live"
               className="w-[80%] h-[80%] object-contain"
             />
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        <div className="w-[49%] h-full bg-white rounded-3xl p-9 relative cursor-pointer">
+        <motion.div 
+        variants={cardAnimation}
+            initial="hidden"
+            whileInView="visible"
+            whileHover={{
+              y: -10,
+              scale: 1.02,
+            }}
+        className="w-[49%] h-full bg-white rounded-3xl p-9 relative cursor-pointer">
           <div className="w-full h-[50%] bg-gray-500 rounded-3xl ">
-            <img
+            <motion.img
+            whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.5 }}
               src="https://www.reliancefoundation.org/sites/default/files/2024-01/rural_thumb4.jpg"
               alt="liveimg"
               className="w-full h-full rounded-3xl"
@@ -457,20 +594,33 @@ function Rural() {
             </button>
           </div>
 
-          <div className="w-24 h-24 flex items-center justify-center bg-[#C0EDD0] absolute top-56 left-56 rounded-full">
+          <motion.div 
+          animate={{ rotate: [0, 5, -5, 0] }}
+          transition={{ repeat: Infinity, duration: 4 }}
+          className="w-24 h-24 flex items-center justify-center bg-[#C0EDD0] absolute top-56 left-56 rounded-full">
             <img
               src="https://www.reliancefoundation.org/sites/default/files/2024-01/rural_icon4.png"
               alt="live"
               className="w-[70%] h-[70%] object-contain"
             />
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
 
       <div className="w-[80%] h-[550px] m-auto mt-10 flex justify-between">
-        <div className="w-[49%] h-full bg-white rounded-3xl p-9 relative cursor-pointer">
+        <motion.div 
+        variants={cardAnimation}
+            initial="hidden"
+            whileInView="visible"
+            whileHover={{
+              y: -10,
+              scale: 1.02,
+            }}
+        className="w-[49%] h-full bg-white rounded-3xl p-9 relative cursor-pointer">
           <div className="w-full h-[50%] bg-gray-500 rounded-3xl ">
-            <img
+            <motion.img
+            whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.5 }}
               src="https://www.reliancefoundation.org/sites/default/files/2024-01/rural_thumb5.jpg"
               alt="liveimg"
               className="w-full h-full rounded-3xl"
@@ -487,18 +637,31 @@ function Rural() {
             </button>
           </div>
 
-          <div className="w-24 h-24 flex items-center justify-center bg-[#C0EDD0] absolute top-56 left-56 rounded-full">
+          <motion.div
+          animate={{ rotate: [0, 5, -5, 0] }}
+          transition={{ repeat: Infinity, duration: 4 }}
+          className="w-24 h-24 flex items-center justify-center bg-[#C0EDD0] absolute top-56 left-56 rounded-full">
             <img
               src="https://www.reliancefoundation.org/sites/default/files/2024-01/rural_icon5.png"
               alt="live"
               className="w-[80%] h-[80%] object-contain"
             />
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        <div className="w-[49%] h-full bg-white rounded-3xl p-9 relative cursor-pointer">
+        <motion.div
+        variants={cardAnimation}
+            initial="hidden"
+            whileInView="visible"
+            whileHover={{
+              y: -10,
+              scale: 1.02,
+            }}
+        className="w-[49%] h-full bg-white rounded-3xl p-9 relative cursor-pointer">
           <div className="w-full h-[50%] bg-gray-500 rounded-3xl ">
-            <img
+            <motion.img
+            whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.5 }}
               src="https://www.reliancefoundation.org/sites/default/files/2024-09/Technology-for-Rural-Development_thumb.jpg"
               alt="liveimg"
               className="w-full h-full rounded-3xl"
@@ -515,17 +678,25 @@ function Rural() {
             </button>
           </div>
 
-          <div className="w-24 h-24 flex items-center justify-center bg-[#C0EDD0] absolute top-56 left-56 rounded-full">
+          <motion.div 
+          animate={{ rotate: [0, 5, -5, 0] }}
+          transition={{ repeat: Infinity, duration: 4 }}
+          className="w-24 h-24 flex items-center justify-center bg-[#C0EDD0] absolute top-56 left-56 rounded-full">
             <img
               src="https://www.reliancefoundation.org/sites/default/files/2024-01/rural_icon6.png"
               alt="live"
               className="w-[70%] h-[70%] object-contain"
             />
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
 
-      <div className="w-[80%] m-auto h-[450px]  bg-[#C0EDD0] mt-12 rounded-3xl text-center">
+      <motion.div
+      variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        whileHover={{ scale: 1.01 }}
+      className="w-[80%] m-auto h-[450px]  bg-[#C0EDD0] mt-12 rounded-3xl text-center">
         <div className=" pt-14 text-6xl font-serif text-[#003C3C]">
           Sign up for our latest updates
         </div>
@@ -547,7 +718,7 @@ function Rural() {
             SUBSCRIBE
           </button>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 }
