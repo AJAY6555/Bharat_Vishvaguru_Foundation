@@ -1,241 +1,3 @@
-// import { motion } from "framer-motion";
-// import {
-//   FaArrowRight,
-//   FaHandsHelping,
-//   FaHeartbeat,
-//   FaGraduationCap,
-//   FaLeaf,
-// } from "react-icons/fa";
-
-// import React from 'react'
-
-// function Aboutus() {
-//   return (
-//     <section className="bg-white overflow-hidden">
-
-//       {/* HERO */}
-//      <div className="relative h-[95vh] w-full">
-
-//         <img
-//           src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
-//           alt=""
-//           className="w-full h-full object-cover"
-//         />
-
-//         {/* Overlay */}
-//         <div className="absolute inset-0 bg-gradient-to-r from-[#00142d]/90 via-[#00142d]/60 to-transparent"></div>
-
-//         {/* Content */}
-//         <div className="absolute inset-0 flex items-center">
-
-//           <div className="max-w-7xl mx-auto px-6 w-full">
-
-//             <motion.div
-//               initial={{ opacity: 0, y: 70 }}
-//               animate={{ opacity: 1, y: 0 }}
-//               transition={{ duration: 1 }}
-//               className="max-w-3xl"
-//             >
-
-//               <p className="uppercase tracking-[5px] text-cyan-300 font-semibold mb-6">
-//                 Bharat Vishvguru Foundation
-//               </p>
-
-//               <h1 className="text-6xl md:text-7xl font-bold leading-tight text-white">
-//                 Building A Better Future Through Humanity & Innovation
-//               </h1>
-
-//               <p className="text-gray-200 text-xl leading-9 mt-8">
-//                 We are committed to transforming lives through education,
-//                 healthcare, rural empowerment and sustainable initiatives
-//                 that inspire hope and long-term impact across communities.
-//               </p>
-
-//               <button className="mt-10 bg-white text-[#00142d] px-10 py-5 rounded-full font-semibold flex items-center gap-4 hover:scale-105 duration-500 shadow-2xl">
-
-//                 Learn More
-
-//                 <FaArrowRight />
-
-//               </button>
-
-//             </motion.div>
-
-//           </div>
-
-//         </div>
-
-//       </div>
-
-//       {/* ABOUT CONTENT */}
-//       <div className="py-28">
-
-//         <div className="max-w-7xl mx-auto px-6">
-
-//           <div className="grid lg:grid-cols-2 gap-24 items-center">
-
-//             {/* LEFT IMAGES */}
-//             <motion.div
-//               initial={{ opacity: 0, x: -100 }}
-//               whileInView={{ opacity: 1, x: 0 }}
-//               transition={{ duration: 1 }}
-//               className="relative"
-//             >
-
-//               <img
-//                 src="https://images.unsplash.com/photo-1517048676732-d65bc937f952"
-//                 alt=""
-//                 className="rounded-[35px] h-[700px] w-full object-cover shadow-2xl"
-//               />
-
-//               {/* Floating Image */}
-//               <img
-//                 src="https://images.unsplash.com/photo-1509062522246-3755977927d7"
-//                 alt=""
-//                 className="absolute -bottom-14 -right-14 w-[320px] h-[240px] rounded-[30px] object-cover border-[10px] border-white shadow-2xl"
-//               />
-
-//             </motion.div>
-
-//             {/* RIGHT CONTENT */}
-//             <motion.div
-//               initial={{ opacity: 0, x: 100 }}
-//               whileInView={{ opacity: 1, x: 0 }}
-//               transition={{ duration: 1 }}
-//             >
-
-//               <p className="uppercase tracking-[5px] text-blue-600 font-semibold mb-5">
-//                 About Us
-//               </p>
-
-//               <h2 className="text-5xl md:text-6xl font-bold text-[#0a1b38] leading-tight">
-//                 Empowering Communities Through Purpose-Driven Action
-//               </h2>
-
-//               <p className="text-gray-600 text-lg leading-9 mt-8">
-//                 Bharat Vishvguru Foundation works towards creating
-//                 sustainable and inclusive development for communities
-//                 across India. Our mission is to uplift lives through
-//                 impactful programmes focused on education, healthcare,
-//                 women empowerment, rural transformation and youth
-//                 development.
-//               </p>
-
-//               <p className="text-gray-600 text-lg leading-9 mt-6">
-//                 Inspired by the spirit of service and innovation, we
-//                 strive to bridge social gaps and create opportunities
-//                 that help individuals and communities thrive with
-//                 dignity and confidence.
-//               </p>
-
-//               {/* Stats */}
-//               <div className="grid grid-cols-2 gap-8 mt-14">
-
-//                 <div>
-//                   <h1 className="text-6xl font-bold text-blue-600">
-//                     10+
-//                   </h1>
-
-//                   <p className="text-gray-600 mt-3 text-lg">
-//                     Years Of Impact
-//                   </p>
-//                 </div>
-
-//                 <div>
-//                   <h1 className="text-6xl font-bold text-blue-600">
-//                     5000+
-//                   </h1>
-
-//                   <p className="text-gray-600 mt-3 text-lg">
-//                     Lives Empowered
-//                   </p>
-//                 </div>
-
-//               </div>
-
-//             </motion.div>
-
-//           </div>
-
-//         </div>
-
-//       </div>
-
-//       {/* INITIATIVES */}
-//       <div className="bg-[#f4f8fc] py-28">
-
-//         <div className="max-w-7xl mx-auto px-6">
-
-//           <div className="text-center max-w-4xl mx-auto">
-
-//             <p className="uppercase tracking-[5px] text-blue-600 font-semibold mb-5">
-//               Our Initiatives
-//             </p>
-
-//             <h2 className="text-5xl md:text-6xl font-bold text-[#0a1b38] leading-tight">
-//               Driving Change Across Every Sector
-//             </h2>
-
-//           </div>
-
-//           {/* CARDS */}
-//           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-20">
-
-//             {[
-//               {
-//                 icon: <FaGraduationCap />,
-//                 title: "Education",
-//                 text: "Supporting quality learning and digital access for students.",
-//               },
-//               {
-//                 icon: <FaHeartbeat />,
-//                 title: "Healthcare",
-//                 text: "Providing healthcare support and wellness programmes.",
-//               },
-//               {
-//                 icon: <FaHandsHelping />,
-//                 title: "Community",
-//                 text: "Strengthening communities through inclusive initiatives.",
-//               },
-//               {
-//                 icon: <FaLeaf />,
-//                 title: "Sustainability",
-//                 text: "Encouraging eco-friendly and sustainable development.",
-//               },
-//             ].map((item, index) => (
-//               <motion.div
-//                 key={index}
-//                 whileHover={{ y: -15 }}
-//                 className="bg-white rounded-[30px] p-10 shadow-lg hover:shadow-2xl duration-500"
-//               >
-
-//                 <div className="w-20 h-20 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-3xl mb-8">
-//                   {item.icon}
-//                 </div>
-
-//                 <h3 className="text-3xl font-bold text-[#0a1b38] mb-5">
-//                   {item.title}
-//                 </h3>
-
-//                 <p className="text-gray-600 leading-8 text-lg">
-//                   {item.text}
-//                 </p>
-
-//               </motion.div>
-//             ))}
-
-//           </div>
-
-//         </div>
-
-//       </div>
-
-//     </section>
-//   )
-// }
-
-// export default Aboutus
-
 import { motion } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
 
@@ -243,7 +5,7 @@ const AboutUs = () => {
   return (
     <section className="bg-white overflow-hidden">
       {/* HERO SECTION */}
-      <div className="relative h-[85vh] mt-36">
+      <div className="relative h-[85vh] md:h-[85vh] mt-36 md:mt-36">
         <img
           src="What_we_do_Cover.png"
           alt=""
@@ -255,22 +17,22 @@ const AboutUs = () => {
 
         {/* Content */}
         <div className="absolute inset-0 flex items-center">
-          <div className="max-w-7xl mx-auto px-6 w-full">
+          <div className="max-w-7xl mx-auto px-5 md:px-6 w-full">
             <motion.div
               initial={{ opacity: 0, y: 80 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
               className="max-w-4xl"
             >
-              <p className="uppercase tracking-[5px] text-cyan-300 font-semibold mb-6">
+              <p className="uppercase tracking-[3px] md:tracking-[5px] text-cyan-300 font-semibold mb-4 md:mb-6 text-sm md:text-base">
                 Careers
               </p>
 
-              <h1 className="text-6xl md:text-7xl font-bold leading-tight text-white">
+              <h1 className="text-4xl md:text-7xl font-bold leading-tight text-white">
                 About Us
               </h1>
 
-              <p className="text-gray-200 text-xl leading-9 mt-8">
+              <p className="text-gray-200 text-base md:text-xl leading-7 md:leading-9 mt-6 md:mt-8 max-w-2xl">
                 Bharat Vishvaguru Foundation is committed to building an
                 inclusive India through innovative and sustainable solutions
                 that uplift communities and transform lives.

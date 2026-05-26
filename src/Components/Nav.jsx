@@ -10,7 +10,6 @@ const Nav = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
 
-  
   return (
     <>
       {/* NAVBAR */}
@@ -42,9 +41,9 @@ const Nav = () => {
               >
                 <NavLink to="/aboutus">
                   <div className="flex items-center gap-2 h-[95px] cursor-pointer border-b-[3px] border-transparent hover:border-[#0b1f57] hover:text-[#0b1f57] duration-300">
-                  About Us
-                  <FaChevronDown className="text-[10px]" />
-                </div>
+                    About Us
+                    <FaChevronDown className="text-[10px]" />
+                  </div>
                 </NavLink>
 
                 {/* ABOUT MENU */}
@@ -146,9 +145,9 @@ const Nav = () => {
               >
                 <NavLink to="/whatwedo">
                   <div className="flex items-center gap-2 h-[95px] cursor-pointer border-b-[3px] border-transparent hover:border-[#0b1f57] hover:text-[#0b1f57] duration-300">
-                  What We Do
-                  <FaChevronDown className="text-[10px]" />
-                </div>
+                    What We Do
+                    <FaChevronDown className="text-[10px]" />
+                  </div>
                 </NavLink>
 
                 {/* WHAT MENU */}
